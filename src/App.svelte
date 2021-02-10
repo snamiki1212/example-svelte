@@ -1,5 +1,6 @@
 <script lang="typescript">
   export let name: string;
+  import Parent from "./Parent.svelte";
 </script>
 
 <main>
@@ -9,6 +10,7 @@
     how to build Svelte apps.
   </p>
   <div class="test">this is test</div>
+  <Parent />
 </main>
 
 <style lang="scss">
