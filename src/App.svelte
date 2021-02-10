@@ -1,6 +1,9 @@
 <script lang="typescript">
   export let name: string;
   import Parent from "./Parent.svelte";
+  import IntersectionObserver from "./Shared/IntersectionObserver.svelte";
+  import { fade } from "svelte/transition";
+  let visible = false;
 </script>
 
 <main>
@@ -11,9 +14,40 @@
   </p>
   <div class="test">this is test</div>
   <Parent />
+  <hr />
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <button on:click={() => (visible = !visible)}>toggle</button>
+  <!-- <IntersectionObserver let:intersecting top={-400}> -->
+  <!-- {#if intersecting} -->
+  {console.log("visible", visible)}
+  {#if visible}
+    <div transition:fade>
+      <div>start</div>
+      <div class="box red">box</div>
+      <div class="box red">box</div>
+      <div class="box red">box</div>
+      <div>end</div>
+    </div>
+  {/if}
+  <!-- </IntersectionObserver> -->
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
 </main>
 
 <style lang="scss">
+  .hidden {
+    visibility: hidden;
+  }
   main {
     text-align: center;
     padding: 1em;
@@ -30,6 +64,19 @@
 
   .test {
     color: red;
+  }
+
+  .box {
+    width: 300px;
+    height: 300px;
+    background: lightblue;
+    opacity: 0.6;
+    border: 1px solid blue;
+  }
+
+  .red {
+    background: red;
+    opacity: 0.2;
   }
 
   @media (min-width: 640px) {
