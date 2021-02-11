@@ -21,23 +21,35 @@
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
+  <!--  -->
+  <div>Intersection Observer</div>
+  <IntersectionObserver let:intersecting top={-400}>
+    {#if intersecting}
+      {console.log("visible", visible)}
+      <div transition:fade>
+        <div>start</div>
+        <div class="box red">box</div>
+        <div class="box red">box</div>
+        <div class="box red">box</div>
+        <div>end</div>
+      </div>
+    {/if}
+  </IntersectionObserver>
+  <!--  -->
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <!--  -->
+  <div>Toggle</div>
   <button on:click={() => (visible = !visible)}>toggle</button>
-  <!-- <IntersectionObserver let:intersecting top={-400}> -->
-  <!-- {#if intersecting} -->
-  {console.log("visible", visible)}
   {#if visible}
     <div transition:fade>
-      <div>start</div>
       <div class="box red">box</div>
       <div class="box red">box</div>
       <div class="box red">box</div>
-      <div>end</div>
     </div>
   {/if}
-  <!-- </IntersectionObserver> -->
-  <div class="box">box</div>
-  <div class="box">box</div>
-  <div class="box">box</div>
+  <!--  -->
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
