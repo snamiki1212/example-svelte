@@ -1,5 +1,4 @@
 <script lang="typescript">
-  export let name: string;
   import Parent from "./Parent.svelte";
   import IntersectionObserver from "./Shared/IntersectionObserver.svelte";
   import { fade } from "svelte/transition";
@@ -7,20 +6,19 @@
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <p>
-    Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-    how to build Svelte apps.
-  </p>
-  <div class="test">this is test</div>
+  <!--  -->
+  <div>Render Parent</div>
   <Parent />
   <hr />
+  <!--  -->
+
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
+
   <!--  -->
   <div>Intersection Observer</div>
   <IntersectionObserver let:intersecting top={-400}>
@@ -36,9 +34,13 @@
     {/if}
   </IntersectionObserver>
   <!--  -->
+
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+
   <!--  -->
   <div>Toggle</div>
   <button on:click={() => (visible = !visible)}>toggle</button>
@@ -50,6 +52,7 @@
     </div>
   {/if}
   <!--  -->
+
   <div class="box">box</div>
   <div class="box">box</div>
   <div class="box">box</div>
@@ -65,17 +68,6 @@
     padding: 1em;
     max-width: 240px;
     margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  .test {
-    color: red;
   }
 
   .box {
